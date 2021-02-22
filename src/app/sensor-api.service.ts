@@ -11,6 +11,7 @@ export class SensorApiService {
 
   constructor(httpClient: HttpClient) {
     this.httpClient = httpClient;
+    this.ping().subscribe(next => {console.log(next)}, error => {console.log(error)});
   }
 
   getTemp(table: string, from: number, to: number): Observable<string>{
