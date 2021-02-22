@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +14,6 @@ export class SensorApiService {
   }
 
   getTemp(from: number, to: number): Observable<any>{
-    return null;//this.httpClient.get<any>(`localhost:3000/sensor/${from}/${to}`);
+    return this.httpClient.get<any>(`localhost:3000/sensor/${from}/${to}`);
   }
 }

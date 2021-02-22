@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SensorApiService} from "./sensor-api.service";
 
 @Component({
   selector: 'app-root',
@@ -7,11 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit{
   title = 'Web-Interface';
-  //sensorService: SensorService;
+  sensorService: SensorApiService;
   tempPastDayJSON;
 
-  constructor(/*sensorService: SensorService*/) {
-    //this.sensorService = sensorService;
+  constructor(sensorService: SensorApiService) {
+    this.sensorService = sensorService;
   }
 
   ngOnInit(){
@@ -19,7 +20,7 @@ export class AppComponent implements OnInit{
   }
 
   tempPastDay(){
-    //this.sensorService.getTemp(24).subscribe(ret => this.tempPastDayJSON = ret);
+    this.sensorService.getTemp(24,0).subscribe(ret => this.tempPastDayJSON = ret);
   }
 
 }
