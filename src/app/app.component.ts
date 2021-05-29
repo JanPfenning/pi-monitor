@@ -24,6 +24,7 @@ export class AppComponent implements OnInit{
       next: x => {console.log('Observer got a next value: ' + x);
                   //this.tempPastDayJSON = x;
                   var json = JSON.parse(x);
+                  if(json === "" || json === JSON.parse('\"\"') || json === JSON.parse("\'\'"))
                   this.tempPastDayJSON = json
                   },
       error: err => console.error('Observer got an error: ' + JSON.stringify(err)),
@@ -31,4 +32,7 @@ export class AppComponent implements OnInit{
     });
   }
 
+  emptyData() {
+    return (Object.keys(this.tempPastDayJSON).length === 0)
+  }
 }

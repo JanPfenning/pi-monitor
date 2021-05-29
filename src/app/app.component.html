@@ -1,4 +1,5 @@
 <p> Temperatures of the past 24 hours </p>
+<div *ngIf="emptyData()"></div>
 <div *ngFor="let data of tempPastDayJSON">
   <p>{{data.time | date:'dd.MM HH:mm'}}: {{data.temp}}C°</p>
 </div>
