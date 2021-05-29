@@ -10,6 +10,8 @@ export class AppComponent implements OnInit{
   title = 'Web-Interface';
   sensorService: SensorApiService;
   tempPastDayJSON;
+  dataFromHoursAgo: number = 24;
+  dataToHoursAgo: number = 0;
   public dataExists: boolean;
 
   constructor(sensorService: SensorApiService) {
@@ -17,11 +19,11 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(){
-    this.tempPastDay();
+    this.getTemp();
   }
 
-  tempPastDay(){
-    this.sensorService.getTemp('sensor', 72, 48).subscribe({
+  getTemp(){
+    this.sensorService.getTemp('sensor', this.dataFromHoursAgo, this.dataToHoursAgo).subscribe({
       next: x => {
                     console.log('Observer got a next value: ' + x);
                     //this.tempPastDayJSON = x;

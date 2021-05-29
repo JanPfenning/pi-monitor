@@ -1,3 +1,6 @@
+<input [value]="dataFromHoursAgo">
+<input [value]="dataToHoursAgo">
+<button (click)="getTemp()">Submit</button>
 <p> Temperatures of the past 24 hours </p>
 <div *ngIf="this.dataExists; else noData">
   <div *ngFor="let data of tempPastDayJSON">
