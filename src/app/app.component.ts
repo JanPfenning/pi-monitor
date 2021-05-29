@@ -21,7 +21,7 @@ export class AppComponent implements OnInit{
   }
 
   tempPastDay(){
-    this.sensorService.getTemp('sensor', 24, 0).subscribe({
+    this.sensorService.getTemp('sensor', 72, 48).subscribe({
       next: x => {
                     console.log('Observer got a next value: ' + x);
                     //this.tempPastDayJSON = x;
