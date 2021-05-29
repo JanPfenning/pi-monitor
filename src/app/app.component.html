@@ -1,4 +1,4 @@
-<p> test </p>
+<p> Temperatures of the past 24 hours </p>
 <div *ngFor="let data of tempPastDayJSON">
-  <p>{{data.temp}} @ {{data.time | date}}</p>
+  <p>{{data.time | date:'full date'}}: {{data.temp}}C°</p>
 </div>
