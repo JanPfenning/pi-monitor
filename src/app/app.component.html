@@ -1,5 +1,4 @@
 <p> test </p>
-<tr *ngFor="let data of tempPastDayJSON">
-  <td>{{data.temp}}</td>
-  <td>{{data.time}}</td>
-</tr>
+<div *ngFor="let data of tempPastDayJSON">
+  <p>{{data.temp}} @ {{data.time | date}}</p>
+</div>
