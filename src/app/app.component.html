@@ -1,5 +1,5 @@
-<input [value]="dataFromHoursAgo">
-<input [value]="dataToHoursAgo">
+<input [value]="dataFromHoursAgo" (input)="dataFromHoursAgo = $event.target.value">
+<input [value]="dataToHoursAgo" (input)="dataToHoursAgo = $event.target.value">
 <button (click)="getTemp()">Submit</button>
 <p> Temperatures of the past 24 hours </p>
 <div *ngIf="this.dataExists; else noData">
