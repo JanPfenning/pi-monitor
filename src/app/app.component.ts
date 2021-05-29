@@ -10,6 +10,7 @@ export class AppComponent implements OnInit{
   title = 'Web-Interface';
   sensorService: SensorApiService;
   tempPastDayJSON;
+  public dataExists: boolean;
 
   constructor(sensorService: SensorApiService) {
     this.sensorService = sensorService;
@@ -21,11 +22,12 @@ export class AppComponent implements OnInit{
 
   tempPastDay(){
     this.sensorService.getTemp('sensor', 24, 0).subscribe({
-      next: x => {console.log('Observer got a next value: ' + x);
-                  //this.tempPastDayJSON = x;
-                  var json = JSON.parse(x);
-                  if(json === "" || json === JSON.parse('\"\"') || json === JSON.parse("\'\'"))
-                  this.tempPastDayJSON = json
+      next: x => {
+                    console.log('Observer got a next value: ' + x);
+                    //this.tempPastDayJSON = x;
+                    var json = JSON.parse(x);
+                    this.tempPastDayJSON = json;
+                    this.dataExists = this.emptyData()
                   },
       error: err => console.error('Observer got an error: ' + JSON.stringify(err)),
       complete: () => console.log('Observer got a complete notification'),

@@ -1,5 +1,12 @@
 <p> Temperatures of the past 24 hours </p>
-<!--<div *ngIf="emptyData()"></div>-->
-<div *ngFor="let data of tempPastDayJSON">
-  <p>{{data.time | date:'dd.MM HH:mm'}}: {{data.temp}}C°</p>
+<div *ngIf="this.dataExists; else noData">
+  <div *ngFor="let data of tempPastDayJSON">
+    <p>{{data.time | date:'dd.MM HH:mm'}}: {{data.temp}}C°</p>
+  </div>
 </div>
+<ng-template #noData>
+  <div>
+    There is no data for the given timespan
+  </div>
+</ng-template>
+
