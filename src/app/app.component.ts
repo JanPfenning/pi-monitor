@@ -27,14 +27,14 @@ export class AppComponent implements OnInit{
                     //this.tempPastDayJSON = x;
                     var json = JSON.parse(x);
                     this.tempPastDayJSON = json;
-                    this.dataExists = this.emptyData()
+                    this.dataExists = this.reasonableData()
                   },
       error: err => console.error('Observer got an error: ' + JSON.stringify(err)),
       complete: () => console.log('Observer got a complete notification'),
     });
   }
 
-  emptyData() {
-    return (Object.keys(this.tempPastDayJSON).length === 0)
+  reasonableData() {
+    return (Object.keys(this.tempPastDayJSON).length !== 0)
   }
 }
