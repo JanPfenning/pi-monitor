@@ -1,5 +1,9 @@
 <input [value]="dataFromHoursAgo" (input)="dataFromHoursAgo = $event.target.value">
 <input [value]="dataToHoursAgo" (input)="dataToHoursAgo = $event.target.value">
+<label for="lowerBoundInput">Unterer Schwellenwert</label>
+<input id="lowerBoundInput" [value]="lowerBound" (input)="lowerBound = $event.target.value">
+<label for="upperBoundInput">Oberer Schwellenwert</label>
+<input id="upperBoundInput" [value]="upperBound" (input)="upperBound = $event.target.value">
 <button (click)="getTemp()">Submit</button>
 <button (click)="reverseData()">
   <a *ngIf="reversed">Show Old to New</a>
@@ -9,7 +13,7 @@
 <p> Showing Temperatures in the timespan from {{dataFromHoursAgo}} hours ago to {{dataToHoursAgo}} hours ago </p>
 <div *ngIf="this.dataExists; else noData">
   <div *ngFor="let data of tempJSON">
-    <p [style.background-color]="data.temp < 20 ? 'red' : (data.temp > 70 ? 'green' : 'white')">
+    <p [style.background-color]="data.temp < lowerBound ? 'red' : (data.temp > upperBound ? 'red' : 'white')">
       {{data.time | date:'dd.MM. HH:mm'}}: {{data.temp | number:'1.2' | replace: '.': ','}}C°
     </p>
   </div>

@@ -14,6 +14,8 @@ export class AppComponent implements OnInit{
   dataToHoursAgo: number = 0;
   public dataExists: boolean;
   reversed: boolean = false;
+  lowerBound: number = 70;
+  upperBound: number = 90;
 
   constructor(sensorService: SensorApiService) {
     this.sensorService = sensorService;
