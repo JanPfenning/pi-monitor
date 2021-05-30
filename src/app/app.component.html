@@ -9,7 +9,7 @@
 <p> Showing Temperatures in the timespan from {{dataFromHoursAgo}} hours ago to {{dataToHoursAgo}} hours ago </p>
 <div *ngIf="this.dataExists; else noData">
   <div *ngFor="let data of tempJSON">
-    <p>{{data.time | date:'dd.MM HH:mm'}}: {{data.temp}}C°</p>
+    <p [style.color]="data.temp > 70 ? 'green' : 'white'">{{data.time | date:'dd.MM HH:mm'}}: {{data.temp}}C°</p>
   </div>
 </div>
 <ng-template #noData>
