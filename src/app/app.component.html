@@ -10,7 +10,7 @@
 <div *ngIf="this.dataExists; else noData">
   <div *ngFor="let data of tempJSON">
     <p [style.background-color]="data.temp < 20 ? 'red' : (data.temp > 70 ? 'green' : 'white')">
-      {{data.time | date:'dd.MM. HH:mm'}}: {{data.temp | number:'2-3,2'}}C°
+      {{data.time | date:'dd.MM. HH:mm'}}: {{data.temp | replace: '.': ','}}C°
     </p>
   </div>
 </div>

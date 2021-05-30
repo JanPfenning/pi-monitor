@@ -5,10 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {SensorApiService} from "./sensor-api.service";
 import {HttpClientModule} from "@angular/common/http";
+import { ReplacePipe } from './replace.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ReplacePipe
   ],
   imports: [
     BrowserModule,
