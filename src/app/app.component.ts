@@ -69,12 +69,12 @@ export class AppComponent implements OnInit{
     console.log(headerList);
     let array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
     let str = '';
-    let row = 'S.No,';
+    let row = 'S.No;';
 
-    let newHeaders = ["Name", "Age", "Country", "Phone"];
+    let newHeaders = ["time", "minute", "temp"];
 
     for (let index in newHeaders) {
-      row += newHeaders[index] + ',';
+      row += newHeaders[index] + ';';
     }
     row = row.slice(0, -1);
     str += row + '\r\n';
@@ -83,7 +83,7 @@ export class AppComponent implements OnInit{
       for (let index in headerList) {
         let head = headerList[index];
 
-        line += ',' + array[i][head];
+        line += ';' + array[i][head];
       }
       str += line + '\r\n';
     }
