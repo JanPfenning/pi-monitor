@@ -50,7 +50,7 @@ export class AppComponent implements OnInit{
   }
 
   downloadFile(data, filename = 'data') {
-    let arrHeader = ["time", "minute", "temp"];
+    let arrHeader = ["time", "temp"];
     let csvData = this.ConvertToCSV(data, arrHeader);
     console.log(csvData)
     let blob = new Blob(['\ufeff' + csvData], { type: 'text/csv;charset=utf-8;' });
@@ -69,9 +69,9 @@ export class AppComponent implements OnInit{
     console.log(headerList);
     let array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
     let str = '';
-    let row = 'S.No;';
+    let row = '';
 
-    let newHeaders = ["time", "minute", "temp"];
+    let newHeaders = ["time", "temp"];
 
     for (let index in newHeaders) {
       row += newHeaders[index] + ';';
@@ -79,7 +79,7 @@ export class AppComponent implements OnInit{
     row = row.slice(0, -1);
     str += row + '\r\n';
     for (let i = 0; i < array.length; i++) {
-      let line = (i + 1) + '';
+      let line = '';
       for (let index in headerList) {
         let head = headerList[index];
 
