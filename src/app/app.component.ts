@@ -31,7 +31,7 @@ export class AppComponent implements OnInit{
                     var json = JSON.parse(x);
                     this.tempJSON = json;
                     if(this.reversed){
-                      this.tempJSON.reversed()
+                      this.tempJSON.reverse()
                     }
                     this.dataExists = this.reasonableData()
                   },
