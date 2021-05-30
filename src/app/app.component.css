@@ -1,4 +1,10 @@
 #coloringInputs{
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: auto auto;
+}
+#tableData{
+  display: grid;
+  grid-template: "a a a b b b" auto
+                 "c c c d d d" auto
+                 "e e f f g g" auto;
 }

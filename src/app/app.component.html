@@ -1,17 +1,23 @@
-<div id="coloringInputs">
+<div id="coloringInputs" class="twoCol">
   <label for="lowerBoundInput">Unterer Schwellenwert</label>
   <input id="lowerBoundInput" [value]="lowerBound" (input)="lowerBound = $event.target.value">
   <label for="upperBoundInput">Oberer Schwellenwert</label>
   <input id="upperBoundInput" [value]="upperBound" (input)="upperBound = $event.target.value">
 </div>
-<input [value]="dataFromHoursAgo" (input)="dataFromHoursAgo = $event.target.value">
-<input [value]="dataToHoursAgo" (input)="dataToHoursAgo = $event.target.value">
-<button (click)="getTemp()">Submit</button>
-<button (click)="reverseData()">
-  <a *ngIf="reversed">Show Old to New</a>
-  <a *ngIf="!reversed">Show New to Old</a>
-</button>
-<button (click)="exportCsv()">Export current table as CSV</button>
+
+<div id="tableData" class="twoCol">
+  <label for="dataFromHoursAgo">Von vor wie viel Stunden:</label>
+  <input id="dataFromHoursAgo" [value]="dataFromHoursAgo" (input)="dataFromHoursAgo = $event.target.value">
+  <label for="dataToHoursAgo">Bis vor wie viel Stunden:</label>
+  <input id="dataToHoursAgo" [value]="dataToHoursAgo" (input)="dataToHoursAgo = $event.target.value">
+  <button (click)="getTemp()">Submit</button>
+  <button (click)="reverseData()">
+    <a *ngIf="reversed">Show Old to New</a>
+    <a *ngIf="!reversed">Show New to Old</a>
+  </button>
+  <button (click)="exportCsv()">Export current table as CSV</button>
+</div>
+
 <p> Showing Temperatures in the timespan from {{dataFromHoursAgo}} hours ago to {{dataToHoursAgo}} hours ago </p>
 <div *ngIf="this.dataExists; else noData">
   <div *ngFor="let data of tempJSON">
