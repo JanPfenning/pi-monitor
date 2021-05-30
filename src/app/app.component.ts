@@ -85,7 +85,7 @@ export class AppComponent implements OnInit{
 
         line += array[i][head] + ';';
       }
-      line.slice(0,-1);
+      line = line.slice(0,-1);
       str += line + '\r\n';
     }
     return str;
