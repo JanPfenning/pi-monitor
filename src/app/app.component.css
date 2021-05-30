@@ -4,7 +4,7 @@
 }
 #tableData{
   display: grid;
-  grid-template: "a a a b b b" auto
-                 "c c c d d d" auto
-                 "e e f f g g" auto;
+  grid-template: "a b" auto
+                 "c d" auto
+                 "e f g" auto;
 }
