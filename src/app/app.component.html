@@ -5,9 +5,10 @@
   <a *ngIf="reversed">Show Old to New</a>
   <a *ngIf="!reversed">Show New to Old</a>
 </button>
+<button (click)="exportCsv()">Export current table as CSV</button>
 <p> Showing Temperatures in the timespan from {{dataFromHoursAgo}} hours ago to {{dataToHoursAgo}} hours ago </p>
 <div *ngIf="this.dataExists; else noData">
-  <div *ngFor="let data of tempPastDayJSON">
+  <div *ngFor="let data of tempJSON">
     <p>{{data.time | date:'dd.MM HH:mm'}}: {{data.temp}}C°</p>
   </div>
 </div>
