@@ -43,6 +43,7 @@ export class AppComponent implements OnInit{
 
   reverseData() {
     this.tempJSON = this.tempJSON.reverse()
+    this.reversed = !this.reversed
   }
 
   exportCsv() {
