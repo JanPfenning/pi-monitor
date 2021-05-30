@@ -1,6 +1,10 @@
 <input [value]="dataFromHoursAgo" (input)="dataFromHoursAgo = $event.target.value">
 <input [value]="dataToHoursAgo" (input)="dataToHoursAgo = $event.target.value">
 <button (click)="getTemp()">Submit</button>
+<button (click)="reverseData()">
+  <a *ngIf="reversed">Show Old to New</a>
+  <a *ngIf="!reversed">Show New to Old</a>
+</button>
 <p> Showing Temperatures in the timespan from {{dataFromHoursAgo}} hours ago to {{dataToHoursAgo}} hours ago </p>
 <div *ngIf="this.dataExists; else noData">
   <div *ngFor="let data of tempPastDayJSON">

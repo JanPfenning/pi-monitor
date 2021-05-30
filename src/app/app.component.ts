@@ -13,6 +13,7 @@ export class AppComponent implements OnInit{
   dataFromHoursAgo: number = 24;
   dataToHoursAgo: number = 0;
   public dataExists: boolean;
+  reversed: boolean = false;
 
   constructor(sensorService: SensorApiService) {
     this.sensorService = sensorService;
@@ -38,5 +39,9 @@ export class AppComponent implements OnInit{
 
   reasonableData() {
     return (Object.keys(this.tempPastDayJSON).length !== 0)
+  }
+
+  reverseData() {
+    this.tempPastDayJSON = this.tempPastDayJSON.reverse()
   }
 }
