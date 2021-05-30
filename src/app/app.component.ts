@@ -83,8 +83,9 @@ export class AppComponent implements OnInit{
       for (let index in headerList) {
         let head = headerList[index];
 
-        line += ';' + array[i][head];
+        line += array[i][head] + ';';
       }
+      line.slice(0,-1);
       str += line + '\r\n';
     }
     return str;
