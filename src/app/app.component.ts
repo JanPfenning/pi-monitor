@@ -30,6 +30,9 @@ export class AppComponent implements OnInit{
                     //this.tempPastDayJSON = x;
                     var json = JSON.parse(x);
                     this.tempJSON = json;
+                    if(this.reversed){
+                      this.tempJSON.reversed()
+                    }
                     this.dataExists = this.reasonableData()
                   },
       error: err => console.error('Observer got an error: ' + JSON.stringify(err)),
